@@ -2,7 +2,29 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Run the docker compose
+
+``` bash
+docker compose up
+```
+
+Export the database url to the environment 
+
+``` bash
+    export DATABASE_URL="postgres://postgres:postgres@localhost:5005/postgres"
+```
+
+Create a metamask wallet and add bloxberg network using the following credentials:
+
+- RPC URL: https://core.bloxberg.org
+- ChainID: 8995
+- Currency symbol: bloxberg
+
+## NOTE
+Add your public key to the internalAccess array within utils/constants
+##
+
+Run the development server:
 
 ```bash
 npm run dev
