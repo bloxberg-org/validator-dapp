@@ -52,6 +52,19 @@ export const Navbar = () => {
                 Set Metadata{" "}
               </Link>
             </li>
+            <li className="p-2">
+              <Link
+                href="https://bloxberg.org/wp-content/uploads/2022/07/bloxberg_whitepaper_2.0.pdf"
+                className={
+                  (router.pathname == "https://bloxberg.org/wp-content/uploads/2022/07/bloxberg_whitepaper_2.0.pdf"
+                    ? "text-link-active"
+                    : "text-link-inactive") + " hover:text-link-active ml-2"
+                }
+              >
+                {" "}
+                Whitepaper{" "}
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
