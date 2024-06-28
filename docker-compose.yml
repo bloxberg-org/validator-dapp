@@ -10,5 +10,18 @@ services:
       - postgres:/var/lib/postgresql/data
     ports:
       - "5005:5432"
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/postgres
+    depends_on:
+      - postgres
+    command: >
+      sh -c "
+      npx prisma migrate deploy &&
+      npm run start
+      "
 volumes:
   postgres:
