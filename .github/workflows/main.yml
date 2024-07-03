@@ -1,0 +1,10 @@
+name: test
+
+on: push
+
+jobs:
+  bloxberg-certification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bloxberg certifier
+        uses: bloxberg-org/bloxberg-certify-github-action@v1.0.1
