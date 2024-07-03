@@ -4,13 +4,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Run the docker compose
 
-``` bash
+```bash
 docker compose up
 ```
 
-Export the database url to the environment 
+Export the database url to the environment
 
-``` bash
+```bash
     export DATABASE_URL="postgres://postgres:postgres@localhost:5005/postgres"
 ```
 
@@ -21,7 +21,9 @@ Create a metamask wallet and add bloxberg network using the following credential
 - Currency symbol: bloxberg
 
 ## NOTE
+
 Add your public key to the internalAccess array within utils/constants
+
 ##
 
 Run the development server:
@@ -52,9 +54,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
