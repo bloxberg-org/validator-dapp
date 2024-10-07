@@ -12,7 +12,7 @@ import {
 
 const inactiveValidators = ({ validators }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [isValidKey, setiIsValidKey] = useState(false);
+  // const [isValidKey, setiIsValidKey] = useState(false);
 
   useEffect(() => {
     if (checkEthereumExists()) {
@@ -22,28 +22,24 @@ const inactiveValidators = ({ validators }) => {
       window.ethereum.on("chainChanged", () => {
         window.location.reload();
       });
-      getConnectedAccounts()
-        .then((value) => {
-          checkAccessKey(value).then((finalvalue) => {
-            setiIsValidKey(finalvalue);
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      // getConnectedAccounts()
+      //   .then((value) => {
+      //     checkAccessKey(value).then((finalvalue) => {
+      //       setiIsValidKey(finalvalue);
+      //     });
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
     }
   }, []);
 
-  return isValidKey ? (
+  return (
     <section className="px-8">
       <SearchBar setSearchTerm={setSearchTerm} />
       {AllValidators({ validators, searchTerm })}
     </section>
-  ) : (
-    <div className="text-light-blue text-3xl py-6">
-      <MainTitle title="Invalid Key" />
-    </div>
-  );
+  ) 
 };
 
 export async function getServerSideProps() {

@@ -8,6 +8,7 @@ import {
   checkMiningKey,
   getConnectedAccounts,
   checkAccessKey,
+  getMetadata,
 } from "../utils/contractData";
 import Loading from "@/components/Loading";
 
@@ -90,12 +91,22 @@ const setmetadata = () => {
       window.ethereum.on("chainChanged", () => {
         window.location.reload();
       });
+
       getConnectedAccounts()
         .then((value) => {
           setAccount(value);
           checkAccessKey(value).then((finalvalue) => {
             setiIsValidVotingKey(finalvalue);
           });
+          getMetadata(value).then((output)=>{
+            setFirstName(output.firstName);
+            setLastName(output.lastName);
+            setInstituteAddress(output.instituteAddress);
+            setContactEmail(output.contactEmail);
+            setResearchField(output.researchField);
+            setResearchInstitute(output.researchInstitute);
+          }
+          )
         })
         .catch((err) => {
           console.log(err);
@@ -119,6 +130,8 @@ const setmetadata = () => {
                 className="px-2 rounded drop-shadow-lg focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-light-blue"
                 id="first-name"
                 onChange={({ target }) => setFirstName(target?.value)}
+                defaultValue={firstName}
+                type="text"
                 required
               />
             </div>
@@ -130,6 +143,8 @@ const setmetadata = () => {
                 required
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 onChange={({ target }) => setContactEmail(target?.value)}
+                defaultValue={contactEmail}
+                type="text"
               />
             </div>
             <div className="text-lg flex flex-col">
@@ -139,6 +154,8 @@ const setmetadata = () => {
                 id="research-field"
                 onChange={({ target }) => setResearchField(target?.value)}
                 required
+                defaultValue={researchField}
+                type="text"
               />
             </div>
           </div>
@@ -150,6 +167,8 @@ const setmetadata = () => {
                 id="last-name"
                 onChange={({ target }) => setLastName(target?.value)}
                 required
+                defaultValue={lastName}
+                type="text"
               />
             </div>
             <div className="text-lg flex flex-col pb-4">
@@ -159,6 +178,8 @@ const setmetadata = () => {
                 id="institute-name"
                 onChange={({ target }) => setResearchInstitute(target?.value)}
                 required
+                defaultValue={researchInstitute}
+                type="text"
               />
             </div>
             <div className="text-lg flex flex-col ">
@@ -168,6 +189,8 @@ const setmetadata = () => {
                 id="institute-address"
                 onChange={({ target }) => setInstituteAddress(target?.value)}
                 required
+                defaultValue={instituteAddress}
+                type="text"
               />
             </div>
           </div>

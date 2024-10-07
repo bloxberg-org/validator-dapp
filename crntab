@@ -1,0 +1,1 @@
+*/5 * * * * /validator_dapp/callApi.sh 2>> /validator_dapp/logg.log
